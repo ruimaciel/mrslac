@@ -1,0 +1,6 @@
+[package]
+name = "mrslac"
+version = "0.1.0"
+authors = ["Rui Maciel <rui.maciel@gmail.com>"]
+
+[dependencies]
