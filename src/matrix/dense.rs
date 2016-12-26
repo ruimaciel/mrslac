@@ -2,7 +2,7 @@ use matrix::BasicReadableMatrix;
 use matrix::BasicWriteableMatrix;
 
 
-struct Dense {
+pub struct Dense {
 	rows: usize,
 	columns: usize,
 	element: Vec<f32>
@@ -12,21 +12,21 @@ struct Dense {
 impl Dense {
 
 	/// creates a new vector
-	fn new(row: usize, col: usize) -> Dense {
+	pub fn new(row: usize, col: usize) -> Dense {
 		let mut v = Dense{rows: row, columns: col, element: vec![0.0; row*col]};
 		v.resize(row, col);
 		return v;
 	}
 
 	/// resizes the vector
-	fn resize(&mut self, row: usize, col: usize) {
+	pub fn resize(&mut self, row: usize, col: usize) {
 		self.element.resize(row*col,0.0);
 		self.rows = row;
 		self.columns = col;
 	}
 
 	fn get_linear_index(&self, i: usize, j: usize) -> usize {
-		return (self.get_columns()-1)*self.get_rows() + j;
+		return (self.get_columns()-1)*i + j;
 	}
 }
 
