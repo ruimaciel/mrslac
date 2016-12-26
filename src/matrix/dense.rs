@@ -1,3 +1,6 @@
+use matrix::BasicReadableMatrix;
+use matrix::BasicWriteableMatrix;
+
 
 struct Dense {
 	rows: usize,
@@ -11,16 +14,25 @@ impl Dense {
 	/// creates a new vector
 	fn new(row: usize, col: usize) -> Dense {
 		let mut v = Dense{rows: row, columns: col, element: vec![0.0; row*col]};
-		v.set_size(row, col);
+		v.resize(row, col);
 		return v;
 	}
 
 	/// resizes the vector
-	fn set_size(&mut self, row: usize, col: usize) {
+	fn resize(&mut self, row: usize, col: usize) {
 		self.element.resize(row*col,0.0);
 		self.rows = row;
 		self.columns = col;
 	}
+
+	fn get_linear_index(&self, i: usize, j: usize) -> usize {
+		return (self.get_columns()-1)*self.get_rows() + j;
+	}
+}
+
+
+
+impl BasicReadableMatrix for Dense {
 
 	/// returns the vector's rows
 	fn get_rows(&self) -> usize {
@@ -30,11 +42,6 @@ impl Dense {
 	/// returns the vector's columns
 	fn get_columns(&self) -> usize {
 		return self.columns;
-	}
-
-
-	fn get_linear_index(&self, i: usize, j: usize) -> usize {
-		return (self.get_columns()-1)*self.get_rows() + j;
 	}
 
 	/// returns the i-th element of the dense static vector
@@ -49,6 +56,11 @@ impl Dense {
 		return self.element[n];
 	}
 
+}
+
+
+impl BasicWriteableMatrix for Dense {
+
 	/// sets the i-th element of the dense static vector
 	fn set_element(&mut self, i: usize, j: usize, value: f32) {
 
@@ -61,3 +73,4 @@ impl Dense {
 	}
 
 }
+
