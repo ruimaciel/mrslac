@@ -1,5 +1,6 @@
 use matrix::BasicReadableMatrix;
 use matrix::BasicWriteableMatrix;
+use matrix::SparseMatrix;
 
 
 pub struct SparseCRS {
@@ -14,13 +15,13 @@ impl SparseCRS {
 
 	/// creates a new matrix
 	pub fn new(rows: usize, columns: usize) -> SparseCRS {
-		let m = SparseCRS{val: vec![0.0], row_ptr: vec![0; rows+1], col_ind: vec![0], columns: columns};
+		let m = SparseCRS{val: vec![], row_ptr: vec![0; rows+1], col_ind: vec![0], columns: columns};
 		return m;
 	}
 
 	/// resizes the vector
 	pub fn resize(&mut self, rows: usize, columns: usize) {
-		self.val.resize(1, 0.0);
+		self.val = vec![];
 		self.row_ptr = vec![0; rows+1];
 		self.col_ind = vec![0];
         self.columns = columns;
@@ -91,6 +92,16 @@ impl BasicWriteableMatrix for SparseCRS {
             self.row_ptr[row_id] = self.row_ptr[row_id] + 1;
         }
 	}
+
+}
+
+
+impl SparseMatrix for SparseCRS {
+
+    /// returns the number of non-null matrix elements
+    fn nnz(&self) -> usize {
+        return self.val.len();
+    }
 
 }
 

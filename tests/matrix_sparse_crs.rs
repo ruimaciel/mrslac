@@ -46,3 +46,27 @@ fn sparse_crs_basic_matrix_interface() {
         }
     }
 }
+
+
+#[test]
+fn sparse_crs_basic_sparse_interface() {
+    use mrslac::matrix::sparse_crs::SparseCRS;
+    use mrslac::matrix::BasicWriteableMatrix;
+    use mrslac::matrix::SparseMatrix;
+
+    let mut a = SparseCRS::new(3,3);
+
+    assert_eq!(a.nnz(), 0);
+
+    a.set_element(0, 0, 1.0);
+    assert_eq!(a.nnz(), 1);
+
+    a.set_element(1, 0, 2.0);
+    assert_eq!(a.nnz(), 2);
+
+    a.set_element(1, 1, 3.0);
+    assert_eq!(a.nnz(), 3);
+
+    a.set_element(2, 2, 4.0);
+    assert_eq!(a.nnz(), 4);
+}
