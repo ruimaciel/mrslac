@@ -2,23 +2,23 @@ use matrix::BasicReadableMatrix;
 use matrix::BasicWriteableMatrix;
 
 
-pub struct Dense {
+pub struct BlockRow {
 	rows: usize,
 	columns: usize,
 	element: Vec<f32>
 }
 
 
-impl Dense {
+impl BlockRow {
 
-	/// creates a new vector
-	pub fn new(row: usize, col: usize) -> Dense {
-		let mut v = Dense{rows: row, columns: col, element: vec![0.0; row*col]};
+	/// creates a new matrix
+	pub fn new(row: usize, col: usize) -> BlockRow {
+		let mut v = BlockRow{rows: row, columns: col, element: vec![0.0; row*col]};
 		v.resize(row, col);
 		return v;
 	}
 
-	/// resizes the vector
+	/// resizes the matrix
 	pub fn resize(&mut self, row: usize, col: usize) {
 		self.element.resize(row*col,0.0);
 		self.rows = row;
@@ -32,19 +32,19 @@ impl Dense {
 
 
 
-impl BasicReadableMatrix for Dense {
+impl BasicReadableMatrix for BlockRow {
 
-	/// returns the vector's rows
+	/// returns the matrix' rows
 	fn get_rows(&self) -> usize {
 		return self.rows;
 	}
 
-	/// returns the vector's columns
+	/// returns the matrix' columns
 	fn get_columns(&self) -> usize {
 		return self.columns;
 	}
 
-	/// returns the i-th element of the dense static vector
+	/// returns the i-th element of the block matrix
 	fn get_element(&self, i: usize, j: usize)-> f32 {
 
 		if i >= self.get_rows() || j >= self.get_columns() {
@@ -59,9 +59,9 @@ impl BasicReadableMatrix for Dense {
 }
 
 
-impl BasicWriteableMatrix for Dense {
+impl BasicWriteableMatrix for BlockRow {
 
-	/// sets the i-th element of the dense static vector
+	/// sets the i-th element of the block row vector
 	fn set_element(&mut self, i: usize, j: usize, value: f32) {
 
 		if i >= self.get_rows() || j >= self.get_columns() {

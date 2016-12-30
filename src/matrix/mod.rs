@@ -1,4 +1,4 @@
-pub mod dense;
+pub mod block_row;
 pub mod sparse_crs;
 
 

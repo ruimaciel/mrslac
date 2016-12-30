@@ -3,10 +3,10 @@ extern crate mrslac;
 
 #[test]
 fn dense_init() {
-    use mrslac::matrix::dense::Dense;
+    use mrslac::matrix::block_row::BlockRow;
     use mrslac::matrix::BasicReadableMatrix;
 
-    let a = Dense::new(3,3);
+    let a = BlockRow::new(3,3);
 
     for i in 0..a.get_rows() {
         for j in 0..a.get_columns() {
@@ -18,11 +18,11 @@ fn dense_init() {
 
 #[test]
 fn dense_basic_matrix_interface() {
-    use mrslac::matrix::dense::Dense;
+    use mrslac::matrix::block_row::BlockRow;
     use mrslac::matrix::BasicReadableMatrix;
     use mrslac::matrix::BasicWriteableMatrix;
 
-    let mut a = Dense::new(3,3);
+    let mut a = BlockRow::new(3,3);
 
     // test setters
     a.set_element(0, 0, 1.0);
@@ -46,3 +46,4 @@ fn dense_basic_matrix_interface() {
         }
     }
 }
+
