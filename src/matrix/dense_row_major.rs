@@ -2,18 +2,18 @@ use matrix::BasicReadableMatrix;
 use matrix::BasicWriteableMatrix;
 
 
-pub struct BlockRow {
+pub struct DenseRowMajor {
 	rows: usize,
 	columns: usize,
 	element: Vec<f32>
 }
 
 
-impl BlockRow {
+impl DenseRowMajor {
 
 	/// creates a new matrix
-	pub fn new(row: usize, col: usize) -> BlockRow {
-		let mut v = BlockRow{rows: row, columns: col, element: vec![0.0; row*col]};
+	pub fn new(row: usize, col: usize) -> DenseRowMajor {
+		let mut v = DenseRowMajor{rows: row, columns: col, element: vec![0.0; row*col]};
 		v.resize(row, col);
 		return v;
 	}
@@ -32,7 +32,7 @@ impl BlockRow {
 
 
 
-impl BasicReadableMatrix for BlockRow {
+impl BasicReadableMatrix for DenseRowMajor {
 
 	/// returns the matrix' rows
 	fn get_rows(&self) -> usize {
@@ -59,7 +59,7 @@ impl BasicReadableMatrix for BlockRow {
 }
 
 
-impl BasicWriteableMatrix for BlockRow {
+impl BasicWriteableMatrix for DenseRowMajor {
 
 	/// sets the i-th element of the block row vector
 	fn set_element(&mut self, i: usize, j: usize, value: f32) {
