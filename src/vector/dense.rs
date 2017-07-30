@@ -11,7 +11,7 @@ impl Dense {
 
 	/// creates a new vector
 	pub fn new(col: usize) -> Dense {
-		let mut v = Dense{element: vec![0.0; col]};
+		let v = Dense{element: vec![0.0; col]};
 		return v;
 	}
 
