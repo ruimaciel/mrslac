@@ -33,30 +33,30 @@ impl SparseCRS {
 
 impl BasicReadableMatrix for SparseCRS {
 
-	/// returns the vector's rows
+	/// returns the number of rows in the matrix
 	fn get_rows(&self) -> usize {
 		return self.row_ptr.len()-1;
 	}
 
-	/// returns the vector's columns
+	/// returns the number of columns in the matrix
 	fn get_columns(&self) -> usize {
 		return self.columns;
 	}
 
-	/// returns the i-th element of the dense static vector
+	/// returns the (i,j)-th element of the matrix
 	fn get_element(&self, i: usize, j: usize)-> f32 {
 
 		if i >= self.get_rows() || j >= self.get_columns() {
 			panic!("access out of bounds");
 		}
-			
-
+		
         for idx in self.row_ptr[i]..self.row_ptr[i+1]{
             if self.col_ind[idx] == j {
                 return self.val[idx]
             }
         }
         
+        // this bit is only reached if no element was found
 		return 0.0
 	}
 }
@@ -65,7 +65,7 @@ impl BasicReadableMatrix for SparseCRS {
 
 impl BasicWriteableMatrix for SparseCRS {
 
-	/// sets the i-th element of the dense static vector
+	/// sets the (i,j)-th element of the sparse matrix 
 	fn set_element(&mut self, i: usize, j: usize, new_value: f32) {
 
 		if i >= self.get_rows() || j >= self.get_columns() {

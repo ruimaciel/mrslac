@@ -4,6 +4,7 @@ pub mod dense;
 pub trait BasicReadableVector {
 
 	fn get_size(&self) -> usize;
+
     fn get_element(&self, i: usize)-> f32;
 
 }

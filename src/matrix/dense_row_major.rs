@@ -2,6 +2,7 @@ use matrix::BasicReadableMatrix;
 use matrix::BasicWriteableMatrix;
 
 
+/// A row-major dense matrix data structure
 pub struct DenseRowMajor {
 	rows: usize,
 	columns: usize,
@@ -25,6 +26,7 @@ impl DenseRowMajor {
 		self.columns = col;
 	}
 
+    /// converts two-dimensional index to a row-major index
 	fn get_linear_index(&self, i: usize, j: usize) -> usize {
 		return (self.get_columns()-1)*i + j;
 	}
@@ -44,7 +46,7 @@ impl BasicReadableMatrix for DenseRowMajor {
 		return self.columns;
 	}
 
-	/// returns the i-th element of the block matrix
+	/// returns the (i,j)-th element of the block matrix
 	fn get_element(&self, i: usize, j: usize)-> f32 {
 
 		if i >= self.get_rows() || j >= self.get_columns() {
@@ -61,7 +63,7 @@ impl BasicReadableMatrix for DenseRowMajor {
 
 impl BasicWriteableMatrix for DenseRowMajor {
 
-	/// sets the i-th element of the block row vector
+	/// sets the (i,j)-th element of the block row vector
 	fn set_element(&mut self, i: usize, j: usize, value: f32) {
 
 		if i >= self.get_rows() || j >= self.get_columns() {
