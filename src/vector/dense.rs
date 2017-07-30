@@ -57,6 +57,15 @@ impl BasicWriteableVector for Dense {
 		self.element[i] = value;
 	}
 
+
+    /// sets all elements to zero
+    fn set_zero(&mut self) {
+        
+        for x in &mut self.element {
+            *x = 0.0;
+        }
+    }
+
 }
 
 

@@ -39,3 +39,21 @@ fn dense_basic_matrix_interface() {
 }
 
 
+#[test]
+fn test_dense_set_zero() {
+    use mrslac::vector::dense::Dense;
+    use mrslac::vector::BasicReadableVector;
+    use mrslac::vector::BasicWriteableVector;
+
+    let mut a = Dense::new(3);
+
+    // test setters
+    a.set_zero();
+
+    // test all getters
+    for i in 0..a.get_size() {
+        assert_eq!(a.get_element(i), 0.0);
+    }
+}
+
+
