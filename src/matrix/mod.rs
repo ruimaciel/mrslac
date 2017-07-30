@@ -21,6 +21,9 @@ pub trait BasicWriteableMatrix {
     /// sets the (i,j)-th element
 	fn set_element(&mut self, i: usize, j: usize, value: f32);
 
+    /// sets all elements to zero
+    fn set_zero(&mut self);
+
 }
 
 

@@ -70,3 +70,25 @@ fn sparse_crs_basic_sparse_interface() {
     a.set_element(2, 2, 4.0);
     assert_eq!(a.nnz(), 4);
 }
+
+
+#[test]
+fn test_sparse_crs_set_zero() {
+    use mrslac::matrix::sparse_crs::SparseCRS;
+    use mrslac::matrix::BasicReadableMatrix;
+    use mrslac::matrix::BasicWriteableMatrix;
+
+    let mut a = SparseCRS::new(3,3);
+
+    // test setters
+    a.set_zero();
+
+    // test all getters
+    for i in 0..a.get_rows() {
+        for j in 0..a.get_columns() {
+            assert_eq!(a.get_element(i,j), 0.0);
+        }
+    }
+}
+
+

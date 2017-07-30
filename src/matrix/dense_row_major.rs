@@ -74,5 +74,15 @@ impl BasicWriteableMatrix for DenseRowMajor {
 		self.element[n] = value;
 	}
 
+
+    /// sets all elements to zero
+    fn set_zero(&mut self) {
+
+        for x in &mut self.element {
+            *x = 0.0
+        }
+    }
+
+
 }
 

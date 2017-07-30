@@ -47,3 +47,24 @@ fn dense_basic_matrix_interface() {
     }
 }
 
+
+#[test]
+fn test_dense_row_major_set_zero() {
+    use mrslac::matrix::dense_row_major::DenseRowMajor;
+    use mrslac::matrix::BasicReadableMatrix;
+    use mrslac::matrix::BasicWriteableMatrix;
+
+    let mut a = DenseRowMajor::new(3,3);
+
+    // test setters
+    a.set_zero();
+
+    // test all getters
+    for i in 0..a.get_rows() {
+        for j in 0..a.get_columns() {
+            assert_eq!(a.get_element(i,j), 0.0);
+        }
+    }
+}
+
+

@@ -93,6 +93,15 @@ impl BasicWriteableMatrix for SparseCRS {
         }
 	}
 
+    /// sets all elements to zero
+    fn set_zero(&mut self) {
+
+        let rows = self.get_rows();
+		self.val = vec![];
+		self.row_ptr = vec![0; rows+1];
+		self.col_ind = vec![0];
+    }
+
 }
 
 
