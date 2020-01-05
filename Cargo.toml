@@ -2,5 +2,11 @@
 name = "mrslac"
 version = "0.1.0"
 authors = ["Rui Maciel <rui.maciel@gmail.com>"]
+homepage = "https://github.com/ruimaciel/mrslac"
+repository = "https://github.com/ruimaciel/mrslac.git"
+readme = "README.md"
+keywords = ["matrix","vector","algebra","sparse"]
+categories = ["data-structures","mathematics","science"]
+license = "MIT"
 
 [dependencies]
