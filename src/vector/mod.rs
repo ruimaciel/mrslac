@@ -1,4 +1,5 @@
 pub mod dense;
+pub mod sparse_cs;
 
 
 pub trait BasicReadableVector {
@@ -15,5 +16,12 @@ pub trait BasicWriteableVector {
 
     /// sets all elements to zero
     fn set_zero(&mut self);
+
+}
+
+pub trait SparseVector {
+
+    /// the number of non-zero elements in the vector
+    fn nnz(&self) -> usize;
 
 }
