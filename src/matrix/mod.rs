@@ -1,5 +1,6 @@
 pub mod dense_row_major;
 pub mod sparse_crs;
+pub mod sparse_dok;
 
 
 pub trait BasicReadableMatrix {
