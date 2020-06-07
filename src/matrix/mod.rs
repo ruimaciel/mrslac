@@ -1,6 +1,5 @@
-pub mod dense_row_major;
-pub mod sparse_crs;
-pub mod sparse_dok;
+pub mod dense;
+pub mod sparse;
 
 
 pub trait BasicReadableMatrix {
@@ -24,13 +23,5 @@ pub trait BasicWriteableMatrix {
 
     /// sets all elements to zero
     fn set_zero(&mut self);
-
-}
-
-
-pub trait SparseMatrix {
-
-    /// returns the number of non-null matrix elements
-    fn nnz(&self) -> usize;
 
 }

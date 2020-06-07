@@ -1,6 +1,6 @@
 use matrix::BasicReadableMatrix;
 use matrix::BasicWriteableMatrix;
-use matrix::SparseMatrix;
+use matrix::sparse::SparseMatrix;
 
 use std::collections::BTreeMap;
 

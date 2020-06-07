@@ -3,7 +3,7 @@ extern crate mrslac;
 
 #[test]
 fn sparse_crs_init() {
-    use mrslac::matrix::sparse_crs::SparseCRS;
+    use mrslac::matrix::sparse::crs::SparseCRS;
     use mrslac::matrix::BasicReadableMatrix;
 
     let a = SparseCRS::new(3,3);
@@ -18,7 +18,7 @@ fn sparse_crs_init() {
 
 #[test]
 fn sparse_crs_basic_matrix_interface() {
-    use mrslac::matrix::sparse_crs::SparseCRS;
+    use mrslac::matrix::sparse::crs::SparseCRS;
     use mrslac::matrix::BasicReadableMatrix;
     use mrslac::matrix::BasicWriteableMatrix;
 
@@ -50,9 +50,9 @@ fn sparse_crs_basic_matrix_interface() {
 
 #[test]
 fn sparse_crs_basic_sparse_interface() {
-    use mrslac::matrix::sparse_crs::SparseCRS;
+    use mrslac::matrix::sparse::crs::SparseCRS;
     use mrslac::matrix::BasicWriteableMatrix;
-    use mrslac::matrix::SparseMatrix;
+    use mrslac::matrix::sparse::SparseMatrix;
 
     let mut a = SparseCRS::new(3,3);
 
@@ -74,7 +74,7 @@ fn sparse_crs_basic_sparse_interface() {
 
 #[test]
 fn test_sparse_crs_set_zero() {
-    use mrslac::matrix::sparse_crs::SparseCRS;
+    use mrslac::matrix::sparse::crs::SparseCRS;
     use mrslac::matrix::BasicReadableMatrix;
     use mrslac::matrix::BasicWriteableMatrix;
 

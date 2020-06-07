@@ -3,7 +3,7 @@ extern crate mrslac;
 
 #[test]
 fn dense_init() {
-    use mrslac::matrix::dense_row_major::DenseRowMajor;
+    use mrslac::matrix::dense::row_major::DenseRowMajor;
     use mrslac::matrix::BasicReadableMatrix;
 
     let a = DenseRowMajor::new(3,3);
@@ -18,7 +18,7 @@ fn dense_init() {
 
 #[test]
 fn dense_basic_matrix_interface() {
-    use mrslac::matrix::dense_row_major::DenseRowMajor;
+    use mrslac::matrix::dense::row_major::DenseRowMajor;
     use mrslac::matrix::BasicReadableMatrix;
     use mrslac::matrix::BasicWriteableMatrix;
 
@@ -50,7 +50,7 @@ fn dense_basic_matrix_interface() {
 
 #[test]
 fn test_dense_row_major_set_zero() {
-    use mrslac::matrix::dense_row_major::DenseRowMajor;
+    use mrslac::matrix::dense::row_major::DenseRowMajor;
     use mrslac::matrix::BasicReadableMatrix;
     use mrslac::matrix::BasicWriteableMatrix;
 

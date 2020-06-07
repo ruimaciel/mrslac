@@ -3,7 +3,7 @@ extern crate mrslac;
 
 #[test]
 fn sparse_dok_init() {
-    use mrslac::matrix::sparse_dok::SparseDOK;
+    use mrslac::matrix::sparse::dok::SparseDOK;
     use mrslac::matrix::BasicReadableMatrix;
 
     let a = SparseDOK::new(3,3);
@@ -18,7 +18,7 @@ fn sparse_dok_init() {
 
 #[test]
 fn sparse_dok_basic_matrix_interface() {
-    use mrslac::matrix::sparse_dok::SparseDOK;
+    use mrslac::matrix::sparse::dok::SparseDOK;
     use mrslac::matrix::BasicReadableMatrix;
     use mrslac::matrix::BasicWriteableMatrix;
 
@@ -50,9 +50,9 @@ fn sparse_dok_basic_matrix_interface() {
 
 #[test]
 fn sparse_dok_basic_sparse_interface() {
-    use mrslac::matrix::sparse_dok::SparseDOK;
+    use mrslac::matrix::sparse::dok::SparseDOK;
     use mrslac::matrix::BasicWriteableMatrix;
-    use mrslac::matrix::SparseMatrix;
+    use mrslac::matrix::sparse::SparseMatrix;
 
     let mut a = SparseDOK::new(3,3);
 
@@ -74,7 +74,7 @@ fn sparse_dok_basic_sparse_interface() {
 
 #[test]
 fn test_sparse_dok_set_zero() {
-    use mrslac::matrix::sparse_dok::SparseDOK;
+    use mrslac::matrix::sparse::dok::SparseDOK;
     use mrslac::matrix::BasicReadableMatrix;
     use mrslac::matrix::BasicWriteableMatrix;
 
